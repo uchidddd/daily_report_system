@@ -7,8 +7,10 @@ import constants.AttributeConst;
 import constants.JpaConst;
 import models.Employee;
 
-// 従業員データのDTOモデル⇄Viewモデルの変換を行うクラス
-
+/**
+ * 従業員データのDTOモデル⇔Viewモデルの変換を行うクラス
+ *
+ */
 public class EmployeeConverter {
 
     /**
@@ -37,13 +39,14 @@ public class EmployeeConverter {
                                 : JpaConst.EMP_DEL_FALSE);
     }
 
-    /** DTOモデルのインスタンスからViewモデルのインスタンスを作成する
+    /**
+     * DTOモデルのインスタンスからViewモデルのインスタンスを作成する
      * @param e Employeeのインスタンス
      * @return EmployeeViewのインスタンス
      */
     public static EmployeeView toView(Employee e) {
 
-        if (e == null) {
+        if(e == null) {
             return null;
         }
 
@@ -66,7 +69,8 @@ public class EmployeeConverter {
                                 : AttributeConst.DEL_FLAG_FALSE.getIntegerValue());
     }
 
-    /** DTOモデルのリストからViewモデルのリストを作成する
+    /**
+     * DTOモデルのリストからViewモデルのリストを作成する
      * @param list DTOモデルのリスト
      * @return Viewモデルのリスト
      */
@@ -76,13 +80,14 @@ public class EmployeeConverter {
         for (Employee e : list) {
             evs.add(toView(e));
         }
+
         return evs;
     }
 
     /**
      * Viewモデルの全フィールドの内容をDTOモデルのフィールドにコピーする
-     * @param e DTO（コピー先）
-     * @param ev Viewモデル（コピー先）
+     * @param e DTOモデル(コピー先)
+     * @param ev Viewモデル(コピー元)
      */
     public static void copyViewToModel(Employee e, EmployeeView ev) {
         e.setId(ev.getId());

@@ -14,7 +14,7 @@ public enum AttributeConst {
     PAGE("page"),
 
     //入力フォーム共通
-    TOKEN("_token"),
+    TOKEN("_token"), 
     ERR("errors"),
 
     //ログイン中の従業員

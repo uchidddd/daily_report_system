@@ -38,6 +38,9 @@ public class TopAction extends ActionBase {
 
         //一覧画面を表示
         forward(ForwardConst.FW_TOP_INDEX);
+        // forward(ForwardConst target) == 引数で指定されたjspの呼び出しを行う。
+        // FW_TOP_INDEX == "topPage/index"
+
     }
 
 }
